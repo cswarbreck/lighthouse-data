@@ -81,13 +81,46 @@ console.log(x)
 
 
 
+// var obj = {
+//     "www.candyspace": [
+//       {
+//         date: "date",
+//         score: "score"
+//       },
+//       {
+//         date: "date",
+//         score: "score",
+//       }
+//     ],
+//     "www.mazda": [
+//       {
+//         date: "date",
+//         score: "score"
+//       }
+//     ]
+//   }
+  
+
+// function getDatasets() {
+//     const dataset = []
+//     for (const iterator of obj) { // for of each URL
+//         dataset.push({
+//             data: [0.28, 0.23, 0.27, 0.25, 0.23, 0.25, 0.11, 0.08, 0.17, 0.27, 0.26, 0.22, 0.26, 0.16, 0.32, 0.33],
+//             label: urls[1],
+//             borderColor: "#3e95cd",
+//             fill: false
+//         })
+//     }
+// }
+  
+
 createChart = () => {
     chart = new Chart(document.getElementById("myChart"), {
         type: 'line',
         data: {
           labels: dates,
           datasets: [
-              { 
+            { 
               data: [0.28, 0.23, 0.27, 0.25, 0.23, 0.25, 0.11, 0.08, 0.17, 0.27, 0.26, 0.22, 0.26, 0.16, 0.32, 0.33],
               label: urls[1],
               borderColor: "#3e95cd",

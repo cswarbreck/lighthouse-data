@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lighthouse-batch -f sites.txt"
+    "start": "lighthouse-batch -f sites.txt && sh ./folder-rename.sh"
   },
   "repository": {
     "type": "git",

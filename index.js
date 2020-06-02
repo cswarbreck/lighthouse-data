@@ -26,92 +26,52 @@ var urls = [
     "https://www.mazda.co.uk/owners/accessories/"
 ];
 
-
-
-
-// var rawData = ["./report/10-may-2020/summary.json", "./report/12-may-2020/summary.json"];
-
-
-
-// console.log(rawData);
-
-// function parseUrls() {
-//     $.getJSON( May12, function( data ) {
-//         let urls = [];
-//         data.forEach(element => {
-//             urls.push(element.url);
-//         });
-//         createChart(urls);
-//         matchURLs(urls);
-//         console.log(urls);
-//     });
+// function callData() {
+//     rawData.forEach(el => {
+//         $.getJSON(el, data => {
+//             let performances = [];
+//             data.forEach(score => {
+//                 performances.push(score.detail.performance);
+//             })
+//         })
+//     })
 // }
 
-// parseUrls();
-
-function callData() {
-    rawData.forEach(el => {
-        $.getJSON(el, data => {
-            let performances = [];
-            data.forEach(score => {
-                performances.push(score.detail.performance);
-            })
-            console.log(performances);
-            // console.log(data);
-        })
-    })
-}
-
-callData();
+// callData();
 
 
-function parseData() {
-    let masterData = [];
-    $.getJSON(master, data => {
-        masterData.push(data);
-    });
-    matchURLs(masterData);
-}
+// function parseData() {
+//     let masterData = [];
+//     $.getJSON(master, data => {
+//         masterData.push(data);
+//     });
+//     matchURLs(masterData);
+// }
 
-function matchURLs(masterData) {
+// function init() {
+//     parseData();
+// }
 
-
-    console.log(urls);
-    console.log(masterData);
-}
-
-// urls.forEach((url) => {
-//   masterData.forEach((day) => {
-//     if () day.url === url) {
-//     return score;
-//     }
-//   })
-// })
-
-function init() {
-    parseData();
-}
-
-init();
+// init();
 
 
 
 
-function May12Data() {
-    $.getJSON( May12, function(data) {
-        let urls = [];
-        let scores =[];
-        data.forEach(element => {
-            urls.push(element.url);
-            scores.push(element.score);
-        })
-        console.log(urls, scores);
-        May12Object = Object.assign(...urls.map((k, i) => ({[k]: scores[i]})));
-        console.log(May12Object);
-    })
-}
+// function May12Data() {
+//     $.getJSON( May12, function(data) {
+//         let urls = [];
+//         let scores =[];
+//         data.forEach(element => {
+//             urls.push(element.url);
+//             scores.push(element.score);
+//         })
+//         // console.log(urls, scores);
+//         May12Object = Object.assign(...urls.map((k, i) => ({[k]: scores[i]})));
+//         // console.log(May12Object);
+//     })
+// }
 
-May12Data();
+// May12Data();
 
 var dataObject = {
   "https://www.candyspace.com": [
@@ -168,35 +128,41 @@ var dataObject = {
   ]
 }
 
-const dataset = [];
-for (const iterator of dataObject) {
-  dataset.push();
+function getDataset(data) {
+  // TODO - async await 
+  const dataSets = []
+  for (const URL in data) {
+    if (data.hasOwnProperty(URL)) {
+      const originalScoreData = data[URL];
+      const newScoreData = []
+      originalScoreData.forEach(score => {
+        newScoreData.push(score.score)
+      })
+      dataSets.push({
+        data: newScoreData,
+        label: URL,
+        borderColor: randomColour(),
+        fill: false
+      })
+    }
+  }
+  return dataSets
 }
 
-
-
-
-
-createChart = (scores) => {
-    chart = new Chart(document.getElementById("myChart"), {
-        type: 'line',
-        data: {
-          labels: dates,
-          datasets: [{ 
-              data: [86,114,106,106,107,111,133,221,783,2478],
-              label: urls[0],
-              borderColor: "#3e95cd",
-              fill: false
-            }
-          ]
-        },
-        options: {
-          title: {
-            display: true,
-            text: 'World population per region (in millions)'
-          }
-        }
-      });
+createChart = async (data) => {
+  chart = new Chart(document.getElementById("myChart"), {
+    type: 'line',
+    data: {
+      datasets: await getDataset(data),
+      labels: [1,2,3,5,6,7],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'World population per region (in millions)'
+      }
+    }
+  });
 }
 
-createChart();
+createChart(dataObject);
