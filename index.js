@@ -20,8 +20,45 @@ function init() {
   })
 }
 
-function concatenateSummaries(URLsArray, DatesArray) {
-  // TODO
+async function concatenateSummaries(URLsArray, DatesArray) {
+  const concatenatedData = {}
+  const promises = []
+  await DatesArray.forEach(date => { // this results in [ date: [{urls with scores}] ]
+    promises.push(new Promise((resolve) => {
+      $.getJSON(`./report/${date}/summary.json`)
+      .done(data => {
+        concatenatedData[date] = data
+        resolve()
+      })
+    }))
+  })
+  Promise.all(promises).then(async () => {
+    // concatenatedData looks like:
+    //  1-june-2020: Array
+    //    {url: "https://www.candyspace.com", score: 1},
+    //    {url: "https://www.anotherURL.com", score: 0.5}
+    const fullData = {}
+    const _promises = []
+    await URLsArray.forEach(url => {
+      _promises.push(new Promise(resolve => {
+        fullData[url] = []
+        for (const dateKey in concatenatedData) {
+          concatenatedData[dateKey].forEach(dataPoint => {
+            if (dataPoint.url === url) {
+              fullData[url].push({
+                score: dataPoint.score,
+                date: +new Date(dateKey)
+              })
+              resolve()
+            }
+          })
+        }
+      }))
+    })
+    Promise.all(_promises).then(() => {
+      createChart(fullData);
+    })
+  })
 }
 init()
 
@@ -116,5 +153,3 @@ createChart = async (data) => {
     }
   });
 }
-
-createChart(dataObject);
