@@ -141,7 +141,7 @@ function getDataset(data) {
       dataSets.push({
         data: newScoreData,
         label: URL,
-        borderColor: randomColour(),
+        borderColor: Colors.random(),
         fill: false
       })
     }
