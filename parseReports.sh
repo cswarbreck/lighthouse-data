@@ -1,10 +1,10 @@
-rm reports.json
-touch reports.json
+rm dates.json
 cd ./report/
-echo "[" >> ../reports.json
+rm reports.txt
 for d in */ ; do
-  echo $i
-  echo "\"$d\"," >> ../reports.json
+  echo "$d" >> reports.txt
 done
-echo "]" >> ../reports.json
+sed -i '' -e '$ d' reports.txt
 cd ..
+echo $(jq -R -s -c 'split("\n")' < ./report/reports.txt) > dates.json
+rm ./report/reports.txt

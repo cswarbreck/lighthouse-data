@@ -1,67 +1,29 @@
-var May12 = "./report/12-may-2020/summary.json";
-var May13 = "./report/13-may-2020/summary.json";
-var May18 = "./report/18-may-2020/summary.json";
-
-var rawData = [May12, May13, May18];
-
-var master = "./report/master.json";
-
-var dates = ["12-May-2020", "13-May-2020", "18-May-2020"]
 var urls = "sites.json";
-const URLsArray = []
+var dates = "dates.json";
 
 function init() {
-  console.log('init')
+  const URLsArray = []
+  const DatesArray = []
   $.getJSON(urls)
   .done(async urlData => {
-    await urlData.forEach(_url => {
-      console.log(_url)
-      URLsArray.push(_url); // builds out urls 
+    await urlData.forEach(url => {
+      URLsArray.push(url); // builds out urls 
     })
-
+    $.getJSON(dates)
+    .done(async datesData => {
+      await datesData.forEach(date => {
+        const parsedDate = date.replace("/", "")
+        DatesArray.push(parsedDate); // builds out dates 
+      })
+      concatenateSummaries(URLsArray, DatesArray)
+    })
   })
 }
+
+function concatenateSummaries(URLsArray, DatesArray) {
+  // TODO
+}
 init()
-
-// function callData() {
-//     rawData.forEach(el => {
-//         $.getJSON(el, data => {
-//             let performances = [];
-//             data.forEach(score => {
-//                 performances.push(score.detail.performance);
-//             })
-//         })
-//     })
-// }
-
-// callData();
-
-
-
-// function init() {
-//     parseData();
-// }
-
-// init();
-
-
-
-
-// function May12Data() {
-//     $.getJSON( May12, function(data) {
-//         let urls = [];
-//         let scores =[];
-//         data.forEach(element => {
-//             urls.push(element.url);
-//             scores.push(element.score);
-//         })
-//         // console.log(urls, scores);
-//         May12Object = Object.assign(...urls.map((k, i) => ({[k]: scores[i]})));
-//         // console.log(May12Object);
-//     })
-// }
-
-// May12Data();
 
 var dataObject = {
   "https://www.candyspace.com": [
