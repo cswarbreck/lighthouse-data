@@ -1,0 +1,25 @@
+[{
+    "url": "https://www.candyspace.com",
+    "name": "www_candyspace_com",
+    "file": "www_candyspace_com.report.json",
+    "score": "0.58",
+    "detail": {
+        "performance": 0.32,
+        "accessibility": 0.76,
+        "best-practices": 0.64,
+        "seo": 0.9,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk",
+    "name": "www_mazda_co_uk",
+    "file": "www_mazda_co_uk.report.json",
+    "score": "0.57",
+    "detail": {
+        "performance": 0.09,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.9,
+        "pwa": 0.26
+    }
+}]

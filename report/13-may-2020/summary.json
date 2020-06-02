@@ -1,0 +1,193 @@
+[{
+    "url": "https://www.candyspace.com",
+    "name": "www_candyspace_com",
+    "file": "www_candyspace_com.report.json",
+    "score": "0.58",
+    "detail": {
+        "performance": 0.32,
+        "accessibility": 0.76,
+        "best-practices": 0.64,
+        "seo": 0.9,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk",
+    "name": "www_mazda_co_uk",
+    "file": "www_mazda_co_uk.report.json",
+    "score": "0.59",
+    "detail": {
+        "performance": 0.21,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.9,
+        "pwa": 0.26
+    }
+}, {
+    "url": "https://www.mazda.co.uk/offers/retail-offers/",
+    "name": "www_mazda_co_uk_offers_retail-offers_",
+    "file": "www_mazda_co_uk_offers_retail-offers_.report.json",
+    "score": "0.62",
+    "detail": {
+        "performance": 0.28,
+        "accessibility": 0.72,
+        "best-practices": 0.86,
+        "seo": 0.92,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/used-cars/",
+    "name": "www_mazda_co_uk_used-cars_",
+    "file": "www_mazda_co_uk_used-cars_.report.json",
+    "score": "0.59",
+    "detail": {
+        "performance": 0.12,
+        "accessibility": 0.76,
+        "best-practices": 0.86,
+        "seo": 0.92,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda-cx-30/",
+    "name": "www_mazda_co_uk_cars_mazda-cx-30_",
+    "file": "www_mazda_co_uk_cars_mazda-cx-30_.report.json",
+    "score": "0.60",
+    "detail": {
+        "performance": 0.23,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.89,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda-cx-5/",
+    "name": "www_mazda_co_uk_cars_mazda-cx-5_",
+    "file": "www_mazda_co_uk_cars_mazda-cx-5_.report.json",
+    "score": "0.58",
+    "detail": {
+        "performance": 0.13,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.88,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/all-new-mazda3-hatchback/",
+    "name": "www_mazda_co_uk_cars_all-new-mazda3-hatchback_",
+    "file": "www_mazda_co_uk_cars_all-new-mazda3-hatchback_.report.json",
+    "score": "0.57",
+    "detail": {
+        "performance": 0.1,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.88,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda2/",
+    "name": "www_mazda_co_uk_cars_mazda2_",
+    "file": "www_mazda_co_uk_cars_mazda2_.report.json",
+    "score": "0.58",
+    "detail": {
+        "performance": 0.12,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.89,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda-mx-5/",
+    "name": "www_mazda_co_uk_cars_mazda-mx-5_",
+    "file": "www_mazda_co_uk_cars_mazda-mx-5_.report.json",
+    "score": "0.58",
+    "detail": {
+        "performance": 0.15,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.88,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda-cx-3/accessories/",
+    "name": "www_mazda_co_uk_cars_mazda-cx-3_accessories_",
+    "file": "www_mazda_co_uk_cars_mazda-cx-3_accessories_.report.json",
+    "score": "0.59",
+    "detail": {
+        "performance": 0.22,
+        "accessibility": 0.79,
+        "best-practices": 0.71,
+        "seo": 0.92,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda-mx-30/",
+    "name": "www_mazda_co_uk_cars_mazda-mx-30_",
+    "file": "www_mazda_co_uk_cars_mazda-mx-30_.report.json",
+    "score": "0.57",
+    "detail": {
+        "performance": 0.11,
+        "accessibility": 0.73,
+        "best-practices": 0.79,
+        "seo": 0.9,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda6-saloon/",
+    "name": "www_mazda_co_uk_cars_mazda6-saloon_",
+    "file": "www_mazda_co_uk_cars_mazda6-saloon_.report.json",
+    "score": "0.60",
+    "detail": {
+        "performance": 0.22,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.9,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/cars/mazda-mx-5-rf/",
+    "name": "www_mazda_co_uk_cars_mazda-mx-5-rf_",
+    "file": "www_mazda_co_uk_cars_mazda-mx-5-rf_.report.json",
+    "score": "0.59",
+    "detail": {
+        "performance": 0.17,
+        "accessibility": 0.79,
+        "best-practices": 0.79,
+        "seo": 0.88,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/configurator/start/",
+    "name": "www_mazda_co_uk_configurator_start_",
+    "file": "www_mazda_co_uk_configurator_start_.report.json",
+    "score": "0.61",
+    "detail": {
+        "performance": 0.19,
+        "accessibility": 0.76,
+        "best-practices": 0.86,
+        "seo": 0.92,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/forms/find-a-dealer/",
+    "name": "www_mazda_co_uk_forms_find-a-dealer_",
+    "file": "www_mazda_co_uk_forms_find-a-dealer_.report.json",
+    "score": "0.60",
+    "detail": {
+        "performance": 0.27,
+        "accessibility": 0.73,
+        "best-practices": 0.79,
+        "seo": 0.92,
+        "pwa": 0.3
+    }
+}, {
+    "url": "https://www.mazda.co.uk/owners/accessories/",
+    "name": "www_mazda_co_uk_owners_accessories_",
+    "file": "www_mazda_co_uk_owners_accessories_.report.json",
+    "score": "0.61",
+    "detail": {
+        "performance": 0.26,
+        "accessibility": 0.73,
+        "best-practices": 0.86,
+        "seo": 0.92,
+        "pwa": 0.3
+    }
+}]
