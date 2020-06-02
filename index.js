@@ -7,24 +7,21 @@ var rawData = [May12, May13, May18];
 var master = "./report/master.json";
 
 var dates = ["12-May-2020", "13-May-2020", "18-May-2020"]
-var urls = [
-    "https://www.candyspace.com",
-    "https://www.mazda.co.uk",
-    "https://www.mazda.co.uk/offers/retail-offers/",
-    "https://www.mazda.co.uk/used-cars/",
-    "https://www.mazda.co.uk/cars/mazda-cx-30/",
-    "https://www.mazda.co.uk/cars/mazda-cx-5/",
-    "https://www.mazda.co.uk/cars/all-new-mazda3-hatchback/",
-    "https://www.mazda.co.uk/cars/mazda2/",
-    "https://www.mazda.co.uk/cars/mazda-mx-5/",
-    "https://www.mazda.co.uk/cars/mazda-cx-3/accessories/",
-    "https://www.mazda.co.uk/cars/mazda-mx-30/",
-    "https://www.mazda.co.uk/cars/mazda6-saloon/",
-    "https://www.mazda.co.uk/cars/mazda-mx-5-rf/",
-    "https://www.mazda.co.uk/configurator/start/",
-    "https://www.mazda.co.uk/forms/find-a-dealer/",
-    "https://www.mazda.co.uk/owners/accessories/"
-];
+var urls = "sites.json";
+const URLsArray = []
+
+function init() {
+  console.log('init')
+  $.getJSON(urls)
+  .done(async urlData => {
+    await urlData.forEach(_url => {
+      console.log(_url)
+      URLsArray.push(_url); // builds out urls 
+    })
+
+  })
+}
+init()
 
 // function callData() {
 //     rawData.forEach(el => {
@@ -40,13 +37,6 @@ var urls = [
 // callData();
 
 
-// function parseData() {
-//     let masterData = [];
-//     $.getJSON(master, data => {
-//         masterData.push(data);
-//     });
-//     matchURLs(masterData);
-// }
 
 // function init() {
 //     parseData();
