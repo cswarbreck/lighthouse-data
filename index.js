@@ -113,25 +113,65 @@ function May12Data() {
 
 May12Data();
 
-var obj = {
-  "www.candyspace": [
+var dataObject = {
+  "https://www.candyspace.com": [
     {
-      date: "date",
-      score: "score"
+      date: 1589238000000,
+      score: 0.28
     },
     {
-      date: "date",
-      score: "score",
+      date: 1589324400000,
+      score: 0.32,
+    },
+    {
+      date: 1589756400000,
+      score: 0.38,
+    },
+    {
+      date: 1590534000000,
+      score: 0.36,
+    },
+    {
+      date: 1590620400000,
+      score: 0.36,
+    },
+    {
+      date: 1590966000000,
+      score: 0.38,
     }
   ],
-  "www.mazda": [
+  "https://www.mazda.co.uk": [
     {
-      date: "date",
-      score: "score"
+      date: 1589238000000,
+      score: 0.23
+    },
+    {
+      date: 1589324400000,
+      score: 0.21,
+    },
+    {
+      date: 1589756400000,
+      score: 0.3,
+    },
+    {
+      date: 1590534000000,
+      score: 0.31,
+    },
+    {
+      date: 1590620400000,
+      score: 0.28,
+    },
+    {
+      date: 1590966000000,
+      score: 0.18,
     }
   ]
 }
 
+const dataset = [];
+for (const iterator of dataObject) {
+  dataset.push();
+}
 
 
 
@@ -160,65 +200,3 @@ createChart = (scores) => {
 }
 
 createChart();
-
-// const json = {
-//     "id": "c2dec94f",
-//     "data": [
-//         {
-//             "field_template_id": 1,
-//             "value": "111"
-//         },
-//         {
-//             "field_template_id": 2,
-//             "value": 222
-//         },
-//         {
-//             "field_template_id": 3,
-//             "value": [
-//                 333
-//             ]
-//         },
-//         {
-//             "field_template_id": 2,
-//             "value": 444
-//         }
-//     ]
-// }
-// const data = json.data
-
-// let obj = {}
-// let arr = []
-// data.forEach(item => {
-//     if (obj[item.field_template_id]) {
-//         arr.some((val, key) => {
-//             const newItem = arr[key]
-//             if (val.field_template_id === item.field_template_id) {
-//                 if (Array.isArray(newItem.value) && Array.isArray(item.value)) {
-//                     newItem.value = newItem.value.concat(item.value)
-//                 } else if (Array.isArray(newItem.value)) {
-//                     newItem.value.push(item.value)
-//                 } else if (Array.isArray(item.value)) {
-//                     item.value.unshift(newItem.value)
-//                 } else {
-//                     const result = []
-//                     result.push(newItem.value)
-//                     result.push(item.value)
-//                     newItem.value = result
-//                 }
-//                 return true
-//             } else {
-//                 return false
-//             }
-//         })
-//     } else {
-//         obj[item.field_template_id] = true
-//         arr.push(item)
-//     }
-// })
-
-// const result = {
-//     id: json.id,
-//     data: arr
-// }
-
-// console.log(result)
