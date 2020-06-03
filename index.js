@@ -8,15 +8,15 @@ function init() {
   $.getJSON(urls)
   .done(async urlData => {
     await urlData.forEach(url => {
-      URLsArray.push(url); // builds out urls 
+      URLsArray.push(url) // builds out urls 
     })
     $.getJSON(dates)
     .done(async datesData => {
       graphDatesArray = datesData
       await datesData.forEach(date => {
-        if (date === "" || date === null || typeof date === "undefined" || !date) return;
+        if (date === "" || date === null || typeof date === "undefined" || !date) return
         const parsedDate = date.replace("/", "")
-        DatesArray.push(parsedDate); // builds out dates 
+        DatesArray.push(parsedDate) // builds out dates 
       })
       concatenateSummaries(URLsArray, DatesArray)
     })
@@ -78,7 +78,7 @@ function getDataset(fullData) {
   const dataSets = []
   for (const URL in fullData) {
     if (fullData.hasOwnProperty(URL)) {
-      const originalScoreData = fullData[URL];
+      const originalScoreData = fullData[URL]
       const newScoreData = []
       originalScoreData.forEach(score => {
         newScoreData.push(score.score)
