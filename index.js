@@ -53,7 +53,7 @@ async function concatenateSummaries(URLsArray, DatesArray) {
               if (dataPoint.score < lowestScore) { lowestScore = dataPoint.score }
               if (dataPoint.score > highestScore) { highestScore = dataPoint.score }
               fullData[url].push({
-                score: dataPoint.score,
+                score: dataPoint.detail.performance,
                 date: +new Date(dateKey)
               })
               resolve()
