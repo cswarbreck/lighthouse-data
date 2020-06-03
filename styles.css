@@ -1,0 +1,12 @@
+body {
+  padding: 0;
+  margin: 30px auto;
+  width: 90vw;
+}
+
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  text-align: center;
+  margin: 0 0 20px;
+}
