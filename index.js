@@ -12,6 +12,7 @@ function init() {
     $.getJSON(dates)
     .done(async datesData => {
       await datesData.forEach(date => {
+        if (date === "" || date === null || typeof date === "undefined" || !date) return;
         const parsedDate = date.replace("/", "")
         DatesArray.push(parsedDate); // builds out dates 
       })
@@ -56,73 +57,20 @@ async function concatenateSummaries(URLsArray, DatesArray) {
       }))
     })
     Promise.all(_promises).then(() => {
+      console.log(fullData)
       createChart(fullData);
     })
   })
 }
 init()
 
-var dataObject = {
-  "https://www.candyspace.com": [
-    {
-      date: 1589238000000,
-      score: 0.28
-    },
-    {
-      date: 1589324400000,
-      score: 0.32,
-    },
-    {
-      date: 1589756400000,
-      score: 0.38,
-    },
-    {
-      date: 1590534000000,
-      score: 0.36,
-    },
-    {
-      date: 1590620400000,
-      score: 0.36,
-    },
-    {
-      date: 1590966000000,
-      score: 0.38,
-    }
-  ],
-  "https://www.mazda.co.uk": [
-    {
-      date: 1589238000000,
-      score: 0.23
-    },
-    {
-      date: 1589324400000,
-      score: 0.21,
-    },
-    {
-      date: 1589756400000,
-      score: 0.3,
-    },
-    {
-      date: 1590534000000,
-      score: 0.31,
-    },
-    {
-      date: 1590620400000,
-      score: 0.28,
-    },
-    {
-      date: 1590966000000,
-      score: 0.18,
-    }
-  ]
-}
 
-function getDataset(data) {
+function getDataset(fullData) {
   // TODO - async await 
   const dataSets = []
-  for (const URL in data) {
-    if (data.hasOwnProperty(URL)) {
-      const originalScoreData = data[URL];
+  for (const URL in fullData) {
+    if (fullData.hasOwnProperty(URL)) {
+      const originalScoreData = fullData[URL];
       const newScoreData = []
       originalScoreData.forEach(score => {
         newScoreData.push(score.score)
@@ -138,11 +86,11 @@ function getDataset(data) {
   return dataSets
 }
 
-createChart = async (data) => {
+createChart = async (fullData) => {
   chart = new Chart(document.getElementById("myChart"), {
     type: 'line',
     data: {
-      datasets: await getDataset(data),
+      datasets: await getDataset(fullData),
       labels: [1,2,3,5,6,7],
     },
     options: {
