@@ -1,6 +1,8 @@
 const urls = "sites.json"
 const dates = "dates.json"
 let graphDatesArray
+let lowestScore = 1
+let highestScore = 0
 
 function init() {
   const URLsArray = []
@@ -48,6 +50,8 @@ async function concatenateSummaries(URLsArray, DatesArray) {
         for (const dateKey in concatenatedData) {
           concatenatedData[dateKey].forEach(dataPoint => {
             if (dataPoint.url === url) {
+              if (dataPoint.score < lowestScore) { lowestScore = dataPoint.score }
+              if (dataPoint.score > highestScore) { highestScore = dataPoint.score }
               fullData[url].push({
                 score: dataPoint.score,
                 date: +new Date(dateKey)
@@ -110,10 +114,14 @@ createChart = async (fullData) => {
       labels: await processGraphDates(graphDatesArray),
     },
     options: {
-      title: {
-        display: true,
-        text: 'World population per region (in millions)'
+      scales: {
+        yAxes: [{
+          ticks: {
+            suggestedMin: Math.max( Math.floor(lowestScore * 10) / 10 ).toFixed(2), // would convert 0.55 or 0.51 or 0.59 to: 0.5 (lowest tenth in the scores)
+            suggestedMax: Math.max( Math.ceil(highestScore * 10) / 10 ).toFixed(2) // would convert 0.85 or 0.81 or 0.89 to: 0.9 (highest tenth in the scores)
+          }
+        }]
       }
     }
-  });
+  })
 }
