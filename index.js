@@ -1,5 +1,6 @@
-var urls = "sites.json";
-var dates = "dates.json";
+const urls = "sites.json"
+const dates = "dates.json"
+let graphDatesArray
 
 function init() {
   const URLsArray = []
@@ -11,6 +12,7 @@ function init() {
     })
     $.getJSON(dates)
     .done(async datesData => {
+      graphDatesArray = datesData
       await datesData.forEach(date => {
         if (date === "" || date === null || typeof date === "undefined" || !date) return;
         const parsedDate = date.replace("/", "")
@@ -56,12 +58,18 @@ async function concatenateSummaries(URLsArray, DatesArray) {
         }
       }))
     })
-    Promise.all(_promises).then(() => {
-      console.log(fullData)
-      createChart(fullData);
-    })
+    Promise.all(_promises).then(() => sortFullData(fullData))
   })
 }
+
+async function sortFullData(fullData) {
+  await Object.keys(fullData).forEach(async key => {
+    const sortedData = await fullData[key].sort((a,b) => a.date - b.date)
+    fullData[key] = sortedData
+  })
+  createChart(fullData)
+}
+
 init()
 
 
@@ -86,12 +94,20 @@ function getDataset(fullData) {
   return dataSets
 }
 
+async function processGraphDates(datesArray) {
+  return await datesArray
+    .filter(date => date.length > 0) // remove empties
+    .map(date => date.replace("/", "")) // remove trailing /
+    .sort((a,b) => (+new Date(a)) - (+new Date(b))) // sort by unix time conversion
+    .map(date => (new Date(date)).toLocaleDateString()) // parse into d/m/y format
+}
+
 createChart = async (fullData) => {
   chart = new Chart(document.getElementById("myChart"), {
     type: 'line',
     data: {
       datasets: await getDataset(fullData),
-      labels: [1,2,3,5,6,7],
+      labels: await processGraphDates(graphDatesArray),
     },
     options: {
       title: {
