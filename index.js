@@ -107,20 +107,38 @@ async function processGraphDates(datesArray) {
 }
 
 createChart = async (fullData) => {
-  chart = new Chart(document.getElementById("myChart"), {
+  chart = new Chart(document.getElementById("reports-chart"), {
     type: 'line',
     data: {
       datasets: await getDataset(fullData),
       labels: await processGraphDates(graphDatesArray),
     },
     options: {
+      legend: {
+        display: true,
+        position: "right"
+      },
       scales: {
         yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "Pagespeed score",
+            fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+            fontSize: 18
+          },
           ticks: {
             suggestedMin: Math.max( Math.floor(lowestScore * 10) / 10 ).toFixed(2), // would convert 0.55 or 0.51 or 0.59 to: 0.5 (lowest tenth in the scores)
             suggestedMax: Math.max( Math.ceil(highestScore * 10) / 10 ).toFixed(2) // would convert 0.85 or 0.81 or 0.89 to: 0.9 (highest tenth in the scores)
           }
-        }]
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "Date",
+            fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+            fontSize: 18
+          }
+        }],
       }
     }
   })
