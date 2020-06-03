@@ -90,7 +90,7 @@ function getDataset(fullData) {
       dataSets.push({
         data: newScoreData,
         label: URL,
-        borderColor: Colors.random(),
+        borderColor: returnAColour(),
         fill: false
       })
     }
