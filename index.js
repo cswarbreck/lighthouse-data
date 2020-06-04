@@ -50,8 +50,8 @@ async function concatenateSummaries(URLsArray, DatesArray) {
         for (const dateKey in concatenatedData) {
           concatenatedData[dateKey].forEach(dataPoint => {
             if (dataPoint.url === url) {
-              if (dataPoint.score < lowestScore) { lowestScore = dataPoint.score }
-              if (dataPoint.score > highestScore) { highestScore = dataPoint.score }
+              if (dataPoint.detail.performance < lowestScore) { lowestScore = dataPoint.detail.performance }
+              if (dataPoint.detail.performance > highestScore) { highestScore = dataPoint.detail.performance }
               fullData[url].push({
                 score: dataPoint.detail.performance,
                 date: +new Date(dateKey)
@@ -122,7 +122,7 @@ createChart = async (fullData) => {
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: "Pagespeed score",
+            labelString: "Page Speed Performance",
             fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
             fontSize: 18
           },
